@@ -96,7 +96,8 @@ const styles = StyleSheet.create({
       backgroundColor: '#E8EAED'
     },
     tasksWrapper: {
-      height: 250,
+      marginTop: 80,
+      bottom: 80,
       paddingHorizontal: 20,
     },
     hintText: {
