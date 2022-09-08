@@ -8,10 +8,15 @@ Esta é uma aplicação desenvolvida em `React Native` com a intenção de geren
 - É possível mudar a cor do quadrado do card da tarefa para definir uma prioridade para aquela tarefa, alternando entre `verde`, `amarelo` e `vermelho`.
 - Para excluir alguma tarefa basta somente clicar em cima do card da tarefa e ela será excluída.
 
+## Demonstração da aplicação:
+
+<img width='250' src="./assets/todolist.gif" />
+
 ## Tecnologias utilizadas:
 
 - React Native;
 - Typescript;
+- Expo;
 - context API;
 - React Hooks;
 - Tab Navigation;
