@@ -8,7 +8,6 @@ import { IProps } from '../interfaces/Props';
 export default function Task({ text }: IProps) {
     const colors = ['green', 'yellow', 'red'];
     const [index, setIndex] = useState(0);
-    // const [colorSelect, setColorSelect] = useState(colors[index]);
 
     useEffect(() => {
         async function getDatas() {

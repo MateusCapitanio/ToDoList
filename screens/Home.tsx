@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import {
-    // Keyboard,
+    Keyboard,
     KeyboardAvoidingView,
     Platform,
     ScrollView, 
@@ -13,9 +13,10 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import Task from '../components/Task';
 import myContext from '../contexts/myContext';
-import Icon from 'react-native-vector-icons/Ionicons'
+import Icon from 'react-native-vector-icons/Ionicons';
+import IconHelp from 'react-native-vector-icons/Feather';
 
-function HomeScreen() {
+function HomeScreen({ navigation }: any) {
   const [task, setTask] = useState('');
   const [arrayTasks, setArrayTasks] = useState<string[]>([]);
 
@@ -39,7 +40,7 @@ function HomeScreen() {
   }, [arrayTasks])
 
   const handleAddTask = () => {
-    // Keyboard.dismiss();
+    Keyboard.dismiss();
     setArrayTasks((prevState) => [...prevState, task]);
     setTask('');
   }
@@ -54,9 +55,15 @@ function HomeScreen() {
         <View style={styles.container}>
         <ScrollView style={styles.tasksWrapper}
         >
-          <Text style={styles.sectionTitle}>Olá, <Text style={{ color: '#ED715F'}}>{username}</Text></Text>
-          <Text style={styles.hintText}>Toque em uma tarefa adicionada para remover</Text>
-          <Text style={styles.hintText}>Toque no quadrado colorido para definir o grau de prioridade da tarefa</Text>
+          <View style={styles.headerStyle}>
+            <Text style={styles.sectionTitle}>Olá, <Text style={{ color: '#ED715F'}}>{username}</Text></Text>
+            <TouchableOpacity
+              style={styles.helpBtn}
+              onPress={() => navigation.push('Ajuda')}
+            >
+              <IconHelp name='help-circle' size={30} color={'#ED715F'} />
+            </TouchableOpacity>
+          </View>
   
           <View style={styles.items}>
             {arrayTasks.map((task, i) => (
@@ -100,14 +107,6 @@ const styles = StyleSheet.create({
       bottom: 80,
       paddingHorizontal: 20,
     },
-    hintText: {
-        color: '#ED715F',
-        backgroundColor: 'white',
-        paddingHorizontal: 20,
-        paddingVertical: 5,
-        marginVertical: 10,
-        borderRadius: 5,
-    },
     sectionTitle: {
       paddingTop: 20,
       fontSize: 24,
@@ -143,6 +142,13 @@ const styles = StyleSheet.create({
     },
     addText: {
         color: '#352E2F',
+    },
+    headerStyle: {
+      flexDirection: 'row',
+      justifyContent: 'space-between'
+    },
+    helpBtn: {
+      marginTop: 28
     },
 });
 

@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, NavigatorIOSProps, KeyboardAvoidingView, TextInput, Button, Image } from "react-native";
 import Icon from 'react-native-vector-icons/EvilIcons';
 import myContext from '../contexts/myContext';
@@ -63,22 +64,22 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         width: 200,
         margin: 20,
-        borderRadius: 50,
+        borderRadius: 10,
     },
     loginBtn: {
       backgroundColor: '#ED715F',
       color: 'white',
-      paddingHorizontal: 80,
+      paddingHorizontal: 70,
       paddingVertical: 15,
-      borderRadius: 20,
+      borderRadius: 10,
       fontSize: 16
     },
     loginBtnDisabled: {
       backgroundColor: '#B0B0A2',
       color: 'white',
-      paddingHorizontal: 80,
+      paddingHorizontal: 70,
       paddingVertical: 15,
-      borderRadius: 20,
+      borderRadius: 10,
       fontSize: 16
     },
     // textBtn: {
